@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'Revans';
+	src: url('Revans/Revans-Normal.eot');
+	src: url('Revans/Revans-Normal.eot') format('embedded-opentype'), url('Revans/Revans-Normal.ttf') format('truetype'), url('Revans/Revans-Normal.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Revans';
+	src: url('Revans/Revans-Medium.eot');
+	src: url('Revans/Revans-Medium.eot') format('embedded-opentype'), url('Revans/Revans-Medium.ttf') format('truetype'), url('Revans/Revans-Medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Revans';
+	src: url('Revans/Revans-Bold.eot');
+	src: url('Revans/Revans-Bold.eot') format('embedded-opentype'), url('Revans/Revans-Bold.ttf') format('truetype'), url('Revans/Revans-Bold.svg') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}

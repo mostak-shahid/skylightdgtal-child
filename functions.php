@@ -27,9 +27,17 @@ function child_enqueue_styles() {
     wp_enqueue_script('jquery');
     wp_enqueue_style( 'fancybox', get_stylesheet_directory_uri() . '/plugins/fancybox/jquery.fancybox.min.css' );
     wp_enqueue_script('fancybox', get_stylesheet_directory_uri() . '/plugins/fancybox/jquery.fancybox.min.js', 'jquery');
+    
+    wp_enqueue_style( 'animate.min', get_stylesheet_directory_uri() . '/plugins/wow/animate.min.css' );
+    wp_enqueue_script('wow', get_stylesheet_directory_uri() . '/plugins/wow/wow.min.js', 'jquery');
+    
+    //wp_enqueue_style( 'isotope-docs', 'https://isotope.metafizzy.co/css/isotope-docs.css' );
+    wp_enqueue_script('isotope.pkgd.min', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', 'jquery');
+    
     wp_enqueue_script('numscroller', get_stylesheet_directory_uri() . '/plugins/numscroller.js', 'jquery');
     
     wp_enqueue_style( 'font-awesome.min', get_stylesheet_directory_uri() . '/fonts/font-awesome-4.7.0/css/font-awesome.min.css' );
+    wp_enqueue_style( 'fonts', get_stylesheet_directory_uri() . '/fonts/fonts.css' );
     
 	wp_enqueue_style( 'astra-child-theme-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_ASTRA_CHILD_VERSION, 'all' );
     wp_enqueue_script('script', get_stylesheet_directory_uri() . '/script.js', 'jquery');

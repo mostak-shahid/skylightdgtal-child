@@ -113,6 +113,39 @@ function crb_attach_theme_options() {
         </div>
         <?php
     });
+    Block::make( __( 'Mos Number Block' ) )
+    ->add_fields( array(
+        Field::make( 'text', 'mos-number-number', __( 'Number' ) ),
+        Field::make( 'text', 'mos-number-heading', __( 'Heading' ) ),
+        Field::make( 'textarea', 'mos-number-content', __( 'Content' ) ),
+        Field::make( 'select', 'mos-number-alignment', __( 'Content Alignment' ) )
+            ->set_options( array(
+                'left' => 'Left',
+                'right' => 'Right',
+                'center' => 'Center',
+            ))
+    ))
+    ->set_description( __( 'Use Font Awesome in <b>Icon class</b>, you can find Fontawesome <a href="https://fontawesome.com/v4.7.0/cheatsheet/">Here</a>.' ) )
+    ->set_icon( 'editor-customchar' )
+    ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+        ?>
+        <div class="mos-number-block-wrapper <?php echo $attributes['className'] ?>">
+            <div class="mos-number-block text-<?php echo esc_html( $fields['mos-number-alignment'] ) ?>">
+                <div class="position-relative">
+                    <?php if ($fields['mos-number-number']) : ?>
+                    <div class="number"><?php echo esc_html( $fields['mos-number-number'] ); ?></div>
+                    <?php endif;?>
+                    <?php if ($fields['mos-number-heading']) : ?>
+                    <h4 class="number-title"><?php echo esc_html( $fields['mos-number-heading'] ); ?></h4>
+                    <?php endif;?>
+                    <?php if ($fields['mos-number-content']) : ?>
+                    <div class="desc"><?php echo $fields['mos-number-content']; ?></div>                    
+                    <?php endif;?>
+                </div>
+            </div>
+        </div>
+        <?php
+    });
     Block::make( __( 'Mos Counter Block' ) )
     ->add_fields( array(
         Field::make( 'text', 'mos-counter-prefix', __( 'Prefix' ) ),
@@ -134,7 +167,7 @@ function crb_attach_theme_options() {
         <div class="mos-counter-block-wrapper <?php echo $attributes['className'] ?>">
             <div class="mos-counter-block text-<?php echo esc_html( $fields['mos-counter-alignment'] ) ?>">
                 <h2 style="color: <?php echo esc_html( $fields['mos-counter-color'] ); ?>"><span class="prefix"><?php echo esc_html( $fields['mos-counter-prefix'] ); ?></span><span class='numscroller' data-min='1' data-max='<?php echo esc_html( $fields['mos-counter-number'] ); ?>' data-delay='5' data-increment='10'><?php echo esc_html( $fields['mos-counter-number'] ); ?></span><span class="suffix"><?php echo esc_html( $fields['mos-counter-suffix'] ); ?></span></h2>
-                <div class="mb-0" style="color: <?php echo esc_html( $fields['mos-counter-text-color'] ); ?>"><?php echo esc_html( $fields['mos-counter-content'] ); ?></div>
+                <div class="mb-0" style="color: <?php echo esc_html( $fields['mos-counter-text-color'] ); ?>"><?php echo $fields['mos-counter-content']; ?></div>
             </div>
         </div>
         <?php
@@ -188,7 +221,9 @@ function crb_attach_theme_options() {
                         <li>Waiting area cleaning.</li>
                     </ul>
                 </div>
+                <?php if($fields['mos-pricing-btn-title'] && $fields['mos-pricing-btn-url']) : ?>
                 <div class="wp-block-buttons"><div class="wp-block-button"><a href="<?php echo esc_html( $fields['mos-pricing-btn-url'] ); ?>" title="" class="wp-block-button__link"><?php echo esc_html( $fields['mos-pricing-btn-title'] ); ?></a></div></div>
+                <?php endif;?>
             
             </div>
         </div>
